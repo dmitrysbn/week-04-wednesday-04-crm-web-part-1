@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
-    <main>
+  <main>
 
       <div class="counter">
-        <p>There are <strong>5</strong> contacts</p>
+        <p>There are <strong><%= Contact.count %></strong> contacts</p>
       </div>
 
-      <div class="contact">
-        <h5 class='contact-name'>Marty McFly (marty@mcfly.com)</h5>
-        <p class='options'>
-          <a href="#">Edit</a> |
-          <a href="#">Delete</a>
-        </p>
-      </div>
+      <% Contact.find_each do |contact| %>
+        <div class="contact">
+          <h5 class='contact-name'>
+            <%= contact.full_name %> (<%= contact.email %>)
+          </h5>
+          <p class='options'>
+            <a href="#">Edit</a> |
+            <a href="#">Delete</a>
+          </p>
+        </div>
+      <% end %>
 
     </main>
-  </body>
-</html>

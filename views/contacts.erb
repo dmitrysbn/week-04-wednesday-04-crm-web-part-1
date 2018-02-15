@@ -1,9 +1,20 @@
-<h1>Contacts:</h1>
-<ol>
-  <% @contacts.each do |contact| %>
-    <li><%= contact.first_name + ', ' + contact.last_name + ', ' + contact.email + ', ' + contact.note %></li>
-  <% end %>
-</ol>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
 
-<a href='/'>Home</a>
-<a href='/about'>About me</a>
+    <ol>
+      <% Contact.find_each do |contact| %>
+        <li>
+          <a href='contacts/<%= contact.id %>'>
+            <%= contact.full_name %>
+          </a>
+        </li>
+      <% end %>
+    </ol>
+
+  </body>
+</html>
