@@ -79,3 +79,7 @@ a.nav {
   text-decoration: none;
   color: white;
 }
+
+ul.contact-details {
+  list-style-type: none;
+}

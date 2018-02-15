@@ -5,9 +5,9 @@ get '/' do
   erb :index
 end
 
-get '/contacts' do
-  @contacts = Contact.all
-  erb :contacts
+get '/contacts/:id' do
+  @contact = Contact.find(params[:id])
+  erb :show_contact
 end
 
 get '/about' do
