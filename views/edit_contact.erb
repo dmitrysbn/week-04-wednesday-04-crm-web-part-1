@@ -8,3 +8,7 @@
   <input type='text' name='note' value='<%= @contact.note %>'>
   <input type='submit' value='Edit Contact'>
 </form>
+
+<form action='/contacts/<%= @contact.id %>' method='get'>
+  <input type='submit' value='Go back'>
+</form>

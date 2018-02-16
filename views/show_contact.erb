@@ -13,6 +13,10 @@
       <li>Note:           <%= @contact.note %></li>
     </ul>
 
+    <form action='/contacts/<%= @contact.id %>/edit' method='get'>
+      <input type='submit' value='Edit'>
+    </form>
+
     <form action='/contacts/<%= @contact.id %>' method='post'>
       <input type='hidden' name='_method' value='delete'>
       <input type='submit' value='Delete'>

@@ -87,3 +87,7 @@ ul.contact-details {
 ol li a {
   text-decoration: none;
 }
+
+form, input {
+  display: inline-block;
+}
