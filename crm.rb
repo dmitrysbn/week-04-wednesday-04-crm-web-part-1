@@ -36,9 +36,8 @@ post '/contacts' do
     first_name:  params[:first_name],
     last_name:   params[:last_name],
     email:       params[:email],
-    note:        params[:note],
+    note:        params[:note]
   )
-
   redirect to('/contacts')
 end
 
@@ -61,14 +60,22 @@ put '/contacts/:id' do
       email:      params[:email],
       note:       params[:note]
     )
-
     redirect to('/contacts')
   else
     raise Sinatra::NotFound
   end
 end
 
-
+### Delete contact ###
+delete '/contacts/:id' do
+  @contact = Contact.find_by(false)
+  if @contact
+    @contact.delete
+    redirect to('/contacts')
+  else
+    raise Sinatra::NotFound
+  end
+end
 
 after do
   ActiveRecord::Base.connection.close
